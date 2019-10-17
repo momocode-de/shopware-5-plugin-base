@@ -1,0 +1,14 @@
+{
+  "name": "momocode/sw5-plugin-base",
+  "type": "library",
+  "description": "Base library that can be loaded as a composer dependency inside of Shopware 5 plugins",
+  "authors": [
+    {
+      "name": "momocode",
+      "homepage": "https://momocode.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "Momocode\\ShopwareBase\\": "src/" }
+  }
+}
