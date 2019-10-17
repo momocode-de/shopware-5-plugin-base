@@ -9,6 +9,7 @@
       "homepage": "https://momocode.de"
     }
   ],
+  "minimum-stability": "dev",
   "autoload": {
     "psr-4": { "Momocode\\ShopwareBase\\": "src/" }
   }
