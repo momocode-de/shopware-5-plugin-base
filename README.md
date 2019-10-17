@@ -11,24 +11,11 @@ It provides following features:
 Installation
 ------------
 
-Add a composer.json to your plugin
-
-```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "ssh://git@gitlab.momocode.de:9022/base/sw5-plugin-base.git"
-        }
-    ],
-    "require": {
-        "momocode/sw5-plugin-base": "@dev"
-    }
-}
+Require the composer package in your plugin first:
 
 ```
-
-Now run `composer install` in the plugin directory.
+composer require momocode/shopware-5-plugin-base
+```
 
 Add composer autoloader to plugin bootstrap class and let your plugin inherit the abstraction
 
