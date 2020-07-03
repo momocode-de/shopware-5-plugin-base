@@ -3,8 +3,6 @@
 namespace Momocode\ShopwareBase\Structs;
 
 /**
- * Attribute Field Struct
- *
  * @author Moritz Müller <moritz@momocode.de>
  */
 class Field
@@ -35,8 +33,6 @@ class Field
     protected $newName;
 
     /**
-     * Field constructor.
-     *
      * @param string $table
      * @param string $column
      * @param string $type

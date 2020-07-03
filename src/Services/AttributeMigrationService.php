@@ -3,6 +3,7 @@
 namespace Momocode\ShopwareBase\Services;
 
 use Doctrine\Common\Cache\CacheProvider;
+use Exception;
 use Momocode\ShopwareBase\Migration\Attribute\AbstractAttributeMigration;
 use Momocode\ShopwareBase\Structs\Field;
 use Shopware\Bundle\AttributeBundle\Service\CrudService;
@@ -26,8 +27,6 @@ class AttributeMigrationService
     protected $crudService;
 
     /**
-     * AttributeMigrationService constructor.
-     *
      * @param ModelManager $modelManager
      * @param CrudService $crudService
      */
@@ -38,12 +37,10 @@ class AttributeMigrationService
     }
 
     /**
-     * Add initial fields for migration
-     *
      * @param AbstractAttributeMigration $migration
      * @param string $installedPluginVersion
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function addInititalFieldsForMigration($migration, $installedPluginVersion)
     {
@@ -57,12 +54,10 @@ class AttributeMigrationService
     }
 
     /**
-     * Add update fields for migration
-     *
      * @param AbstractAttributeMigration $migration
      * @param string $oldPluginVersion
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function addUpdateFieldsForMigration($migration, $oldPluginVersion)
     {
@@ -76,11 +71,9 @@ class AttributeMigrationService
     }
 
     /**
-     * Remove fields for migration
-     *
      * @param AbstractAttributeMigration $migration
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function removeFieldsForMigration($migration)
     {
@@ -94,11 +87,9 @@ class AttributeMigrationService
     }
 
     /**
-     * Create or update field
-     *
      * @param Field $field
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function createOrUpdateField(Field $field)
     {
@@ -121,11 +112,9 @@ class AttributeMigrationService
     }
 
     /**
-     * Delete an existing field
-     *
      * @param Field $field
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function deleteField(Field $field)
     {
@@ -136,8 +125,6 @@ class AttributeMigrationService
     }
 
     /**
-     * Rebuild attribute models for the provided table.
-     *
      * @param string $tableName
      */
     protected function rebuildAttributeModels($tableName)

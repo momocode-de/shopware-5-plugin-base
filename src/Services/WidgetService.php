@@ -3,6 +3,7 @@
 namespace Momocode\ShopwareBase\Services;
 
 use Doctrine\ORM\NoResultException;
+use Exception;
 use Momocode\ShopwareBase\Widget\AbstractWidget;
 use Shopware\Components\Emotion\ComponentInstaller;
 use Shopware\Components\Model\ModelManager;
@@ -26,8 +27,6 @@ class WidgetService
     protected $modelManager;
 
     /**
-     * AbstractWidget constructor.
-     *
      * @param ComponentInstaller $installer
      * @param ModelManager $modelManager
      */
@@ -38,11 +37,9 @@ class WidgetService
     }
 
     /**
-     * Install the wigdet
-     *
      * @param AbstractWidget $widget
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function install(AbstractWidget $widget)
     {
@@ -54,12 +51,10 @@ class WidgetService
     }
 
     /**
-     * Update the widget
-     *
      * @param AbstractWidget $widget
      * @param string $oldPluginVersion
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function update(AbstractWidget $widget, $oldPluginVersion)
     {
@@ -73,13 +68,11 @@ class WidgetService
     }
 
     /**
-     * Create component
-     *
      * @param AbstractWidget $widget
      *
      * @return Component
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function createComponent(AbstractWidget $widget)
     {
@@ -119,7 +112,7 @@ class WidgetService
             foreach ($components as $duplicate) {
                 $this->modelManager->remove($duplicate);
             }
-        } catch (\Exception $exc) {
+        } catch (Exception $exc) {
             return;
         }
     }
