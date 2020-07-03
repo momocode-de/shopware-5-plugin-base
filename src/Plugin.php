@@ -2,6 +2,7 @@
 
 namespace Momocode\ShopwareBase;
 
+use Exception;
 use Momocode\ShopwareBase\Migration\Attribute\AbstractAttributeMigration;
 use Momocode\ShopwareBase\Services\AttributeMigrationService;
 use Momocode\ShopwareBase\Widget\AbstractWidget;
@@ -12,8 +13,6 @@ use Shopware\Components\Plugin\Context\UninstallContext;
 use Shopware\Components\Plugin\Context\UpdateContext;
 
 /**
- * Plugin abstraction
- *
  * @author Moritz Müller <moritz@momocode.de>
  */
 class Plugin extends SwPlugin
@@ -33,7 +32,7 @@ class Plugin extends SwPlugin
      *
      * @param InstallContext $context
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function install(InstallContext $context)
     {
@@ -48,7 +47,7 @@ class Plugin extends SwPlugin
      *
      * @param UpdateContext $context
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function update(UpdateContext $context)
     {
@@ -63,7 +62,7 @@ class Plugin extends SwPlugin
      *
      * @param UninstallContext $context
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function uninstall(UninstallContext $context)
     {
@@ -79,7 +78,7 @@ class Plugin extends SwPlugin
      *
      * @param string $installedPluginVersion
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function runInitialAttributeMigrations($installedPluginVersion)
     {
@@ -96,7 +95,7 @@ class Plugin extends SwPlugin
      *
      * @param string $oldPluginVersion
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function runUpdateAttributeMigrations($oldPluginVersion)
     {
@@ -111,7 +110,7 @@ class Plugin extends SwPlugin
     /**
      * Run delete attribute migrations
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function runDeleteAttributeMigrations()
     {
@@ -126,7 +125,7 @@ class Plugin extends SwPlugin
     /**
      * Install widgets
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function installWidgets()
     {
@@ -141,7 +140,7 @@ class Plugin extends SwPlugin
      *
      * @param string $oldPluginVersion
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function updateWidgets($oldPluginVersion)
     {
