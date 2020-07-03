@@ -21,8 +21,6 @@ abstract class AbstractAttributeMigration
     private $position = 0;
 
     /**
-     * Get initial field structs
-     *
      * @param string $installedPluginVersion
      *
      * @return Field[]
@@ -43,8 +41,6 @@ abstract class AbstractAttributeMigration
     }
 
     /**
-     * Get field structs for new version
-     *
      * @param string $oldPluginVersion
      *
      * @return Field[]
@@ -65,8 +61,6 @@ abstract class AbstractAttributeMigration
     }
 
     /**
-     * Get all fields for deletion
-     *
      * @return Field[]
      */
     public function getDeleteFieldStructs()
@@ -76,8 +70,6 @@ abstract class AbstractAttributeMigration
     }
 
     /**
-     * Has fields
-     *
      * @return bool
      */
     public function hasFields()
@@ -86,36 +78,26 @@ abstract class AbstractAttributeMigration
     }
 
     /**
-     * Get table name
-     *
      * @return string
      */
     abstract public function getTableName();
 
     /**
-     * Get column prefix
-     *
      * @return string
      */
     abstract protected function getColumnPrefix();
 
     /**
-     * Get default options for fields
-     *
      * @return array
      */
     abstract protected function getDefaultOptions();
 
     /**
-     * Get attribute fields for this migration
-     *
      * @return array
      */
     abstract protected function getFields();
 
     /**
-     * Prepare fields
-     *
      * @param $fields
      *
      * @return array

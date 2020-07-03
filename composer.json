@@ -12,5 +12,8 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": { "Momocode\\ShopwareBase\\": "src/" }
+  },
+  "require": {
+    "zbateson/mail-mime-parser": "^1.1"
   }
 }
