@@ -24,7 +24,11 @@ class LoginHelper
         $repository = Shopware()->Models()->getRepository(Shop::class);
         $shop = $repository->getActiveById($user['language']);
 
-        Shopware()->Container()->get('shopware.components.shop_registration_service')->registerShop($shop);
+        if (Shopware()->Container()->has('shopware.components.shop_registration_service')) {
+            Shopware()->Container()->get('shopware.components.shop_registration_service')->registerShop($shop);
+        } else {
+            $shop->registerResources();
+        }
 
         Shopware()->Session()->Admin = true;
         Shopware()->System()->_POST = [

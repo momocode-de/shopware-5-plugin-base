@@ -29,41 +29,6 @@ class DatabaseHelper
     }
 
     /**
-     * @param string $name
-     * @param string $subject
-     * @param string $content
-     *
-     * @return Mail
-     *
-     * @throws ORMException
-     * @throws OptimisticLockException
-     */
-    public function createMailTemplate($name, $subject, $content)
-    {
-        // Create a new mail template
-        $mail = $this->modelManager->getRepository(Mail::class)->findOneBy(['name' => $name]);
-        if (!$mail) {
-            $mail = new Mail();
-            $mail->setFromMail('{config name=mail}');
-            $mail->setFromName('{config name=shopName}');
-            $mail->setIsHtml(true);
-            $mail->setMailtype(1);
-            $mail->setContentHtml('');
-            $mail->setContent('');
-            $mail->setName($name);
-            $mail->setSubject($subject);
-            $this->modelManager->persist($mail);
-        }
-        $mail->setContentHtml($content);
-        $mail->setContext([]);
-        $this->modelManager->flush();
-
-        $this->createdEntities[] = $mail;
-
-        return $mail;
-    }
-
-    /**
      * @param string $entityClass
      * @param array $fixture
      * @return ModelEntity
@@ -86,8 +51,10 @@ class DatabaseHelper
      */
     public function removeEntities()
     {
-        foreach ($this->createdEntities as $entity) {
+        foreach ($this->createdEntities as $detachedEntity) {
+            $entity = $this->modelManager->merge($detachedEntity);
             $this->modelManager->remove($entity);
         }
+        $this->modelManager->flush();
     }
 }
