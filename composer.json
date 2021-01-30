@@ -13,7 +13,7 @@
   "autoload": {
     "psr-4": { "Momocode\\ShopwareBase\\": "src/" }
   },
-  "require": {
+  "require-dev": {
     "zbateson/mail-mime-parser": "^1.1"
   }
 }
