@@ -23,7 +23,7 @@ class MailHelper
     /**
      * @param string $smtpUrl
      */
-    public function __construct(string $smtpUrl)
+    public function __construct($smtpUrl)
     {
         $this->smtpUrl = $smtpUrl;
     }
