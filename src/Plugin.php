@@ -70,7 +70,9 @@ class Plugin extends SwPlugin
             $this->runDeleteAttributeMigrations();
         }
 
-        parent::uninstall($context);
+        if ($context->getPlugin()->getActive()) {
+            $context->scheduleClearCache(UninstallContext::CACHE_LIST_ALL);
+        }
     }
 
     /**
